@@ -63,3 +63,7 @@ group :development, :test do
   gem 'pry-stack_explorer'
 end
 gem 'awesome_rails_console'
+gem 'awesome_rails_console'
+
+group :development, :test do
+end
