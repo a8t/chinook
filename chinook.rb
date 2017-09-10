@@ -15,18 +15,19 @@ rapsongs = Track.where("genre_id = ?", rap.id)
 rapsongs.count
 #
 # Find the total amount of time required to listen to all the tracks in the database.
-
+Track.all.pluck(:milliseconds).sum
 #
 # Find the highest price of any track that has the media type "MPEG audio file".
-
+mp4tracks.order(unit_price: :desc).first[:unit_price]
 #
 # Find the name of the most expensive track that has the media type "MPEG audio file".
-
+mp4tracks.order(unit_price: :desc).first[:name]
 #
 # Find the 2 oldest artists.
-
+Artist.order(:created_at).first(2)
 #
 # Find the least expensive track that has the genre "Electronica/Dance".
-
+Track.where(genre_id: electronica.id).order(unit_price: :asc).first
 #
 # Find all "MPEG autio file" tracks in the genre "Electronica/Dance".
+Track.where(genre_id: electronica.id).where(media_type_id: 3)
